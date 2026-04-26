@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Roboto, Tiro_Bangla } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const tiroBangla = Tiro_Bangla({
+  variable: "--tiro-bangla",
+  subsets: ["bengali"],
+  weight: ['400']
 });
 
 export const metadata: Metadata = {
@@ -25,8 +26,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${roboto.variable} ${roboto.variable} ${tiroBangla.variable} h-full antialiased`}
     >
+
+    
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
