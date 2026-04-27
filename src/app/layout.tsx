@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Roboto, Tiro_Bangla } from "next/font/google";
+import { Roboto, Tiro_Bangla } from "next/font/google";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -30,7 +30,7 @@ export default function RootLayout({
     >
 
     
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#F9FAFB]">{children}</body>
     </html>
   );
 }

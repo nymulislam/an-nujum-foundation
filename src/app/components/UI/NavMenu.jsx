@@ -1,6 +1,9 @@
 import { Bars, CircleInfo, Headphones, House, Picture, SquareArticle, Timeline } from "@gravity-ui/icons";
 import { Button, Drawer } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
+import { FaRegUser } from "react-icons/fa6";
+import MyAccount from "./MyAccount";
 
 export function NavMenu() {
   const navItems = [
@@ -19,33 +22,39 @@ export function NavMenu() {
       </Button>
       <Drawer.Backdrop>
         <Drawer.Content placement="left">
-          <Drawer.Dialog className="border-green-300 border-2">
-
-
-         <div className="flex items-center justify-between pl-3 pb-4 border-b border-gray-50">
+          <Drawer.Dialog className="bg-white border-none shadow-2xl h-full flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 border-b border-slate-50">
               <Image
-                width={150}
-                height={50}
-                src="/ANF-Eng-Horizontal-Black.png" // আপনার লোগো পাথ
+                width={140}
+                height={40}
+                src="/ANF-Eng-Horizontal-Black.png"
                 alt="An-Nujum Foundation"
                 className="object-contain"
               />
-              <Drawer.CloseTrigger className="mt-2 w-8 h-8 rounded-full" />
+              <Drawer.CloseTrigger className="p-2 hover:bg-slate-100 rounded-full transition-colors" />
             </div>
-            <Drawer.Body>
-              <nav className="flex flex-col gap-1">
+
+            {/* Body */}
+            <Drawer.Body className="py-4">
+              <nav className="flex flex-col gap-2">
                 {navItems.map((item) => (
-                  <button
+                  <Link
                     key={item.label}
-                    className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-foreground transition-colors hover:bg-default"
-                    type="button"
+                    href={item.href}
+                    className="flex items-center gap-4 rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition-all hover:bg-amber-50 hover:text-amber-600"
                   >
-                    <item.icon className="size-5 text-muted" />
+                    <item.icon className="size-5" />
                     {item.label}
-                  </button>
+                  </Link>
                 ))}
               </nav>
             </Drawer.Body>
+
+            {/* Bottom Section - My Account */}
+            <div className="p-4 mt-auto border-t border-slate-100 bg-slate-50/50">
+              <MyAccount />
+            </div>
           </Drawer.Dialog>
         </Drawer.Content>
       </Drawer.Backdrop>
