@@ -2,7 +2,6 @@ import { Bars, CircleInfo, Headphones, House, Picture, SquareArticle, Timeline }
 import { Button, Drawer } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaRegUser } from "react-icons/fa6";
 import MyAccount from "./MyAccount";
 
 export function NavMenu() {

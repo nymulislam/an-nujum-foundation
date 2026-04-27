@@ -70,7 +70,7 @@ const Navbar = () => {
           </div>
 
           <Link
-            href="/account"
+            href="/login"
             className="hidden sm:flex w-10 h-10 items-center justify-center rounded-xl bg-amber-50 border border-amber-100 hover:bg-amber-100 transition-all duration-300 active:scale-90"
           >
             <FaRegUser className="text-amber-700" />

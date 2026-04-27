@@ -28,9 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${roboto.variable} ${roboto.variable} ${tiroBangla.variable} h-full antialiased`}
     >
-
-    
-      <body className="min-h-full flex flex-col bg-[#F9FAFB]">{children}</body>
+      <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
 }
