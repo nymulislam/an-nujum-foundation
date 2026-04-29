@@ -7,11 +7,15 @@
 </p>
 
 
+---
+
+
 ## Tech Stack
 
 - Next.js
 - React
 - Tailwind CSS
+
 
 
 ## Libraries Used
@@ -20,6 +24,7 @@
 - DaisyUI
 - React Icons
 - Gravity UI Icons
+
 
 
 ## Preview
