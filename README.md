@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./ANF-Eng-Horizontal-White.png" width="300" />
+  <img src="./public/ANF-Eng-Horizontal-White.png" width="300" />
 </p>
 
 <p align="center">
