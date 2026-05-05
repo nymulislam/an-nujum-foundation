@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
+      data-theme='light'
       className={`${roboto.variable} ${tiroBangla.variable} h-full antialiased`}
     >
       <body className={`${roboto.className} min-h-full flex flex-col`}>
