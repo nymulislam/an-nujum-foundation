@@ -1,51 +1,117 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
 
-const HeroLayoutThree = () => {
+import Image from "next/image";
+import { Button } from "@heroui/react";
+import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
+
+// অ্যানিমেশন ভেরিয়েন্টকে আলাদা করে নেওয়া হয়েছে যাতে কোড ক্লিন থাকে
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1], delay },
+});
+
+const HeroSection = () => {
   return (
-    <section className="bg-gray-50 py-32">
-      <div className="container mx-auto px-6">
-        <div className="bg-white rounded-[40px] p-8 md:p-16 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center gap-12">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-end pb-12 md:pb-20 overflow-hidden bg-[#FAF9F6]">
+      
+      {/* ── Background Layer ── */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop"
+          alt="An-Nujum Foundation"
+          fill
+          priority
+          className="object-cover opacity-20 grayscale-[0.3]"
+        />
+        {/* Amber Gradient Overlay: নিচের দিকে হালকা অন্ধকার যাতে কন্টেন্ট ফুটে ওঠে */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#FAF9F6] via-transparent to-transparent opacity-90" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-8 items-end">
           
-          <div className="flex-1 text-left">
-            <div className="bg-[#1A1B22] text-white text-[10px] font-black px-4 py-1 rounded-full inline-block mb-6 uppercase tracking-widest">
-              Est. 2026
-            </div>
-            <h1 className="text-[#1A1B22] text-4xl md:text-5xl font-black mb-6">
-              Empowering Communities with <span className="text-[#FFB800]">Islamic Values</span>
-            </h1>
-            <ul className="space-y-4 mb-10">
-              {["Education for underprivileged", "Medical support for the needy", "Disaster relief & aid"].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 font-bold text-gray-700">
-                  <div className="w-2 h-2 bg-[#FFB800] rounded-full" /> {item}
-                </li>
-              ))}
-            </ul>
-            <div className="flex gap-4">
-               <button className="bg-[#FFB800] text-[#1A1B22] px-8 py-4 rounded-2xl font-black shadow-lg">Donate Now</button>
-               <button className="p-4 rounded-2xl border border-gray-200 hover:bg-gray-50 transition-colors">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-               </button>
-            </div>
+          {/* ── Left Content: Headline ── */}
+          <div className="lg:col-span-7 xl:col-span-8 mb-8 lg:mb-0">
+            <motion.div {...fadeUp(0.1)}>
+              <h1 className="text-5xl md:text-8xl xl:text-9xl font-black text-slate-900 leading-[0.9] tracking-tighter">
+                LIGHT <br /> 
+                <span className="text-amber-500 inline-flex items-center gap-4">
+                  FOR THE
+                  <span className="hidden md:block h-2 w-24 bg-amber-500 rounded-full" />
+                </span> 
+                <br /> UNKNOWN.
+              </h1>
+            </motion.div>
           </div>
 
-          <div className="flex-1 w-full h-[400px] bg-gray-200 rounded-3xl relative group overflow-hidden">
-             <img 
-                src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800" 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
-                alt="Community Support"
-             />
-             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-xl text-[10px] font-bold text-[#1A1B22]">
-                HELPING 89+ FAMILIES
-             </div>
+          {/* ── Right Content: Stats/CTA Card ── */}
+          <div className="lg:col-span-5 xl:col-span-4">
+            <motion.div 
+              {...fadeUp(0.3)}
+              className="bg-amber-500 p-8 md:p-10 rounded-3xl md:rounded-t-[60px] md:rounded-b-none shadow-2xl shadow-amber-500/20 text-white"
+            >
+              <div className="flex flex-col gap-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-white/20 rounded-full">
+                  <Icon icon="solar:heart-bold" className="text-2xl" />
+                </div>
+                
+                <div className="space-y-3">
+                  <h3 className="text-2xl md:text-3xl font-bold leading-tight">
+                    Making Impact <br /> Since 2021
+                  </h3>
+                  <p className="text-white/90 text-sm md:text-base leading-relaxed">
+                    An-Nujum Foundation has reached over 500 families this year alone. Your small contribution can change a life.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-2">
+                  <Button 
+                    className="bg-white text-amber-600 font-bold h-12 rounded-xl hover:bg-slate-100 transition-colors"
+                    startContent={<Icon icon="solar:hand-money-bold" fontSize={20} />}
+                  >
+                    Donate
+                  </Button>
+                  <Button 
+                    variant="bordered" 
+                    className="border-white text-white font-bold h-12 rounded-xl hover:bg-white/10 transition-colors"
+                  >
+                    Volunteer
+                  </Button>
+                </div>
+
+                {/* শশ্প ছোট একটি ট্রাস্ট সিগন্যাল */}
+                <div className="pt-4 border-t border-white/20 flex items-center gap-3">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="w-7 h-7 rounded-full border-2 border-amber-500 bg-amber-100 overflow-hidden">
+                        <div className="w-full h-full bg-amber-200" />
+                      </div>
+                    ))}
+                  </div>
+                  <span className="text-[12px] font-medium opacity-80 uppercase tracking-wider">
+                    +100 active members
+                  </span>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
         </div>
       </div>
+
+      {/* স্লাইড ইলিউশন (নিচে স্ক্রল করার জন্য ছোট্ট ইন্ডিকেটর) */}
+      <motion.div 
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 text-slate-400 hidden md:block"
+      >
+        <Icon icon="solar:mouse-minimalistic-linear" fontSize={24} />
+      </motion.div>
     </section>
   );
 };
 
-
-export default HeroLayoutThree;
+export default HeroSection;
