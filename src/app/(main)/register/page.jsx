@@ -14,38 +14,40 @@ import { Envelope, Eye, EyeSlash, LogoFacebook } from "@gravity-ui/icons";
 import { BsGoogle } from "react-icons/bs";
 import { useState } from "react";
 
+// inputGroupClass updated for Dark Theme
 const inputGroupClass = [
-    "w-full rounded-xl border border-slate-200 bg-white",
-    "text-slate-900 text-sm placeholder:text-slate-400",
-    "focus-within:outline-none focus-within:border-amber-400 focus-within:ring-2 focus-within:ring-amber-400/30",
+    "w-full rounded-xl border border-white/10 bg-white/5",
+    "text-white text-sm placeholder:text-slate-500",
+    "focus-within:outline-none focus-within:border-amber-400 focus-within:ring-2 focus-within:ring-amber-400/20",
     "transition-all duration-300",
 ].join(" ");
 
 const RegisterPage = () => {
-    const [isVisible, setIsVisible] = useState(false)
-    const [isConfirmPassVisible, setIsConfirmPassVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(false);
+    const [isConfirmPassVisible, setIsConfirmPassVisible] = useState(false);
+    
     const onSubmit = (e) => {
         e.preventDefault();
         alert("Registration successful!");
     };
 
     return (
-        <div className="grid place-items-center min-h-screen bg-zinc-50 px-4 py-26">
-            <Card className="w-full max-w-md border border-slate-100 shadow-xl bg-white rounded-2xl">
+        <div className="grid place-items-center min-h-screen bg-[#080808] px-4 py-26">
+            <Card className="w-full max-w-md border border-white/5 shadow-2xl bg-[#111] rounded-2xl">
 
                 {/* ── Header ── */}
                 <Card.Header className="flex flex-col items-center gap-1 px-8 pt-8 pb-0">
-                    <div className="w-11 h-11 rounded-xl bg-amber-400 flex items-center justify-center mb-3 shadow-sm shadow-amber-200">
+                    <div className="w-11 h-11 rounded-xl bg-amber-400 flex items-center justify-center mb-3 shadow-sm shadow-amber-400/20">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                             <path d="M12 2L2 7l10 5 10-5-10-5Z" fill="#0D0D0D" />
                             <path d="M2 17l10 5 10-5" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round" />
                             <path d="M2 12l10 5 10-5" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     </div>
-                    <Card.Title className="text-2xl font-extrabold text-slate-900 tracking-tight">
+                    <Card.Title className="text-2xl font-extrabold text-white tracking-tight">
                         Create an account
                     </Card.Title>
-                    <Card.Description className="text-slate-500 text-sm text-center mt-1">
+                    <Card.Description className="text-slate-400 text-sm text-center mt-1">
                         Fill in the details below to get started.
                     </Card.Description>
                 </Card.Header>
@@ -57,14 +59,14 @@ const RegisterPage = () => {
                         {/* Full Name — two columns */}
                         <div className="grid grid-cols-2 gap-3">
                             <TextField name="firstName" className="flex flex-col gap-1.5">
-                                <Label className="text-sm font-semibold text-slate-900">
+                                <Label className="text-sm font-semibold text-slate-200">
                                     First name
                                 </Label>
                                 <Input placeholder="Mohammad" className={inputGroupClass} />
                             </TextField>
 
                             <TextField name="lastName" className="flex flex-col gap-1.5">
-                                <Label className="text-sm font-semibold text-slate-900">
+                                <Label className="text-sm font-semibold text-slate-200">
                                     Last name
                                 </Label>
                                 <Input placeholder="Rahman" className={inputGroupClass} />
@@ -73,20 +75,20 @@ const RegisterPage = () => {
 
                         {/* Email */}
                         <TextField name="email" type="email" className="flex flex-col gap-1.5">
-                            <Label className="text-sm font-semibold text-slate-900">
+                            <Label className="text-sm font-semibold text-slate-200">
                                 Email address
                             </Label>
                              <InputGroup className={inputGroupClass}>
-                                <InputGroup.Input placeholder="name@email.com" />
+                                <InputGroup.Input placeholder="name@email.com" className="bg-transparent text-white" />
                                 <InputGroup.Suffix>
-                                    <Envelope className="size-4 text-muted" />
+                                    <Envelope className="size-4 text-slate-500" />
                                 </InputGroup.Suffix>
                             </InputGroup>
                         </TextField>
 
                         {/* Phone */}
                         <TextField name="phone" type="tel" className="flex flex-col gap-1.5">
-                            <Label className="text-sm font-semibold text-slate-900">
+                            <Label className="text-sm font-semibold text-slate-200">
                                 Phone number
                             </Label>
                             <Input placeholder="+880 1X XX XXX XXX" className={inputGroupClass} />
@@ -94,14 +96,14 @@ const RegisterPage = () => {
 
                         {/* Password */}
                         <TextField name="password" type="password" className="flex flex-col gap-1.5">
-                            <Label className="text-sm font-semibold text-slate-900">
+                            <Label className="text-sm font-semibold text-slate-200">
                                 Password
                             </Label>
                             <InputGroup className={inputGroupClass}>
                                 <InputGroup.Input
-                                    className="w-full"
+                                    className="w-full bg-transparent text-white"
                                     type={isVisible ? "text" : "password"}
-                                    value={isVisible ? "87$2h.3diua" : "••••••••"}
+                                    placeholder="••••••••"
                                 />
                                 <InputGroup.Suffix className="pr-0">
                                     <Button
@@ -109,6 +111,7 @@ const RegisterPage = () => {
                                         aria-label={isVisible ? "Hide password" : "Show password"}
                                         size="sm"
                                         variant="ghost"
+                                        className="text-slate-400 hover:bg-transparent hover:text-amber-400"
                                         onPress={() => setIsVisible(!isVisible)}
                                     >
                                         {isVisible ? <Eye className="size-4" /> : <EyeSlash className="size-4" />}
@@ -119,14 +122,14 @@ const RegisterPage = () => {
 
                         {/* Confirm Password */}
                         <TextField name="confirmPassword" type="password" className="flex flex-col gap-1.5">
-                            <Label className="text-sm font-semibold text-slate-900">
+                            <Label className="text-sm font-semibold text-slate-200">
                                 Confirm password
                             </Label>
                             <InputGroup className={inputGroupClass}>
                                 <InputGroup.Input
-                                    className="w-full"
+                                    className="w-full bg-transparent text-white"
                                     type={isConfirmPassVisible ? "text" : "password"}
-                                    value={isConfirmPassVisible ? "87$2h.3diua" : "••••••••"}
+                                    placeholder="••••••••"
                                 />
                                 <InputGroup.Suffix className="pr-0">
                                     <Button
@@ -134,6 +137,7 @@ const RegisterPage = () => {
                                         aria-label={isConfirmPassVisible ? "Hide password" : "Show password"}
                                         size="sm"
                                         variant="ghost"
+                                        className="text-slate-400 hover:bg-transparent hover:text-amber-400"
                                         onPress={() => setIsConfirmPassVisible(!isConfirmPassVisible)}
                                     >
                                         {isConfirmPassVisible ? <Eye className="size-4" /> : <EyeSlash className="size-4" />}
@@ -145,11 +149,11 @@ const RegisterPage = () => {
                         {/* Terms */}
                         <p className="text-xs text-slate-500 leading-relaxed">
                             By creating an account, you agree to our{" "}
-                            <Link href="#" className="font-semibold text-amber-700 hover:text-amber-800 transition-colors duration-300">
+                            <Link href="#" className="font-semibold text-amber-400 hover:text-amber-300 transition-colors duration-300">
                                 Terms of Service
                             </Link>{" "}
                             and{" "}
-                            <Link href="#" className="font-semibold text-amber-700 hover:text-amber-800 transition-colors duration-300">
+                            <Link href="#" className="font-semibold text-amber-400 hover:text-amber-300 transition-colors duration-300">
                                 Privacy Policy
                             </Link>.
                         </p>
@@ -162,18 +166,18 @@ const RegisterPage = () => {
                         {/* Register button */}
                         <Button
                             type="submit"
-                            className="w-full h-11 rounded-xl font-bold text-sm text-slate-950 bg-amber-400 hover:bg-amber-500 active:scale-95 transition-all duration-300 shadow-sm shadow-amber-200 hover:shadow-md"
+                            className="w-full h-11 rounded-xl font-bold text-sm text-black bg-amber-400 hover:bg-amber-500 active:scale-95 transition-all duration-300 shadow-sm shadow-amber-900/20 hover:shadow-md"
                         >
                             Create Account
                         </Button>
 
                         {/* Divider */}
                         <div className="flex items-center gap-3">
-                            <div className="flex-1 h-px bg-slate-200" />
-                            <span className="text-xs font-medium text-slate-400 tracking-widest uppercase">
+                            <div className="flex-1 h-px bg-white/5" />
+                            <span className="text-xs font-medium text-slate-500 tracking-widest uppercase">
                                 or continue with
                             </span>
-                            <div className="flex-1 h-px bg-slate-200" />
+                            <div className="flex-1 h-px bg-white/5" />
                         </div>
 
                         {/* Social buttons */}
@@ -181,27 +185,27 @@ const RegisterPage = () => {
                             <Button
                                 type="button"
                                 variant="outline"
-                                className="h-10 rounded-xl border border-slate-200 text-slate-700 font-medium text-sm hover:bg-amber-50 hover:border-amber-100 flex items-center justify-center gap-2 transition-all duration-300"
+                                className="h-10 rounded-xl border border-white/10 bg-white/5 text-slate-200 font-medium text-sm hover:bg-white/10 hover:border-amber-400/50 flex items-center justify-center gap-2 transition-all duration-300"
                             >
-                                <BsGoogle size={15} />
+                                <BsGoogle size={15} className="text-amber-400" />
                                 Google
                             </Button>
                             <Button
                                 type="button"
                                 variant="outline"
-                                className="h-10 rounded-xl border border-slate-200 text-slate-700 font-medium text-sm hover:bg-amber-50 hover:border-amber-100 flex items-center justify-center gap-2 transition-all duration-300"
+                                className="h-10 rounded-xl border border-white/10 bg-white/5 text-slate-200 font-medium text-sm hover:bg-white/10 hover:border-amber-400/50 flex items-center justify-center gap-2 transition-all duration-300"
                             >
-                                <LogoFacebook className="size-4" />
+                                <LogoFacebook className="size-4 text-amber-400" />
                                 Facebook
                             </Button>
                         </div>
 
                         {/* Login link */}
-                        <p className="text-center text-sm text-slate-500">
+                        <p className="text-center text-sm text-slate-400">
                             Already have an account?{" "}
                             <Link
                                 href="/login"
-                                className="font-semibold text-amber-700 hover:text-amber-800 transition-colors duration-300"
+                                className="font-semibold text-amber-400 hover:text-amber-300 transition-colors duration-300"
                             >
                                 Sign in
                             </Link>
