@@ -11,25 +11,25 @@ import { useRef, useState } from "react";
 
 const IslamicStar = ({ className = "" }) => (
   <svg viewBox="0 0 400 400" fill="none" className={className} aria-hidden="true">
-  {/* Background Lines */}
-  {[0, 30, 60, 90, 120, 150].map((deg) => (
-    <line key={deg} x1="200" y1="40" x2="200" y2="360"
-      stroke="currentColor" strokeWidth="0.7"
-      transform={`rotate(${deg} 200 200)`} />
-  ))}
-  
-  {/* Circles */}
-  {[55, 85, 115, 150].map((r) => (
-    <circle key={r} cx="200" cy="200" r={r}
-      stroke="currentColor" strokeWidth="0.6" fill="none" />
-  ))}
+    {/* Background Lines */}
+    {[0, 30, 60, 90, 120, 150].map((deg) => (
+      <line key={deg} x1="200" y1="40" x2="200" y2="360"
+        stroke="currentColor" strokeWidth="0.7"
+        transform={`rotate(${deg} 200 200)`} />
+    ))}
 
-  {/* Polygon */}
-  <polygon
-    points="200,80 230,160 315,160 245,210 270,295 200,245 130,295 155,210 85,160 170,160"
-    stroke="currentColor" strokeWidth="1.2" fill="currentColor" fillOpacity="0.07" 
-  />
-</svg>
+    {/* Circles */}
+    {[55, 85, 115, 150].map((r) => (
+      <circle key={r} cx="200" cy="200" r={r}
+        stroke="currentColor" strokeWidth="0.6" fill="none" />
+    ))}
+
+    {/* Polygon */}
+    <polygon
+      points="200,80 230,160 315,160 245,210 270,295 200,245 130,295 155,210 85,160 170,160"
+      stroke="currentColor" strokeWidth="1.2" fill="currentColor" fillOpacity="0.07"
+    />
+  </svg>
 );
 
 const GeometricPattern = ({ className = "" }) => (
@@ -62,7 +62,7 @@ const HeroSection = () => (
   <section className="relative bg-[#080808] overflow-hidden text-white">
     <div className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" style={{ opacity: 0.02 }}>
-        <span className="font-serif text-[45vw] text-amber-400 leading-none font-bold italic"><Image src="/ANF-logo-icon.png" width={500} height={500} alt="An-Nujum Logo"/></span>
+        <span className="font-serif text-[45vw] text-amber-400 leading-none font-bold italic"><Image src="/ANF-logo-icon.png" width={500} height={500} alt="An-Nujum Logo" /></span>
       </div>
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-amber-400/5 blur-[150px] pointer-events-none" />
 
@@ -149,7 +149,7 @@ const HeroSection = () => (
         </div>
 
         {[
-          { icon: "solar:users-group-bold", val: "100+", label: "Dedicated Volunteers" },
+          { icon: "solar:users-group-rounded-bold", val: "100+", label: "Dedicated Volunteers" },
           { icon: "solar:buildings-bold", val: "5+", label: "Years of Excellence" },
           { icon: "solar:global-bold", val: "3+", label: "Operating Districts" },
         ].map((s, i) => (
@@ -233,7 +233,7 @@ const programs = [
     arabicMeaning: "Knowledge",
   },
   {
-    icon: "solar:bowl-spoon-bold",
+    icon: "tabler:bowl-spoon-filled",
     title: "Food & Livelihood Relief",
     desc: "Monthly grocery distributions, Ramadan food baskets, and emergency aid to vulnerable families across districts.",
     count: "500+ Families",
@@ -342,7 +342,7 @@ const ImpactSection = () => (
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {[
-          { val: "500+", label: "Families Supported", icon: "solar:users-group-bold" },
+          { val: "500+", label: "Families Supported", icon: "solar:users-group-rounded-bold" },
           { val: "৳40L+", label: "Funds Disbursed", icon: "solar:wallet-money-bold" },
           { val: "80+", label: "Scholarships Given", icon: "solar:diploma-bold" },
           { val: "3+", label: "Districts Covered", icon: "solar:map-point-bold" },
@@ -413,7 +413,7 @@ const ActivitiesSection = () => (
    DONATE / CTA SECTION
 ───────────────────────────────────────────── */
 const donationTiers = [
-  { amount: "৳500", label: "Feeds a Family for a Day", icon: "solar:bowl-spoon-bold" },
+  { amount: "৳500", label: "Feeds a Family for a Day", icon: "tabler:bowl-spoon-filled" },
   { amount: "৳2,000", label: "Monthly Ration for One Family", icon: "solar:box-bold" },
   { amount: "৳5,000", label: "A Child's School Supplies", icon: "solar:backpack-bold" },
   { amount: "৳10,000", label: "Half a Scholarship Month", icon: "solar:diploma-bold" },
