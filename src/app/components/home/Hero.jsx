@@ -11,19 +11,25 @@ import { useRef, useState } from "react";
 
 const IslamicStar = ({ className = "" }) => (
   <svg viewBox="0 0 400 400" fill="none" className={className} aria-hidden="true">
-    {[0, 30, 60, 90, 120, 150].map((deg) => (
-      <line key={deg} x1="200" y1="40" x2="200" y2="360"
-        stroke="currentColor" strokeWidth="0.7"
-        transform={`rotate(${deg} 200 200)`} />
-    ))}
-    {[55, 85, 115, 150].map((r) => (
-      <circle key={r} cx="200" cy="200" r={r}
-        stroke="currentColor" strokeWidth="0.6" fill="none" />
-    ))}
-    <polygon
-      points="200,55 216,160 318,128 248,202 318,272 216,244 200,345 184,244 82,272 152,202 82,128 184,160"
-      stroke="currentColor" strokeWidth="1.2" fill="currentColor" fillOpacity="0.07" />
-  </svg>
+  {/* Background Lines */}
+  {[0, 30, 60, 90, 120, 150].map((deg) => (
+    <line key={deg} x1="200" y1="40" x2="200" y2="360"
+      stroke="currentColor" strokeWidth="0.7"
+      transform={`rotate(${deg} 200 200)`} />
+  ))}
+  
+  {/* Circles */}
+  {[55, 85, 115, 150].map((r) => (
+    <circle key={r} cx="200" cy="200" r={r}
+      stroke="currentColor" strokeWidth="0.6" fill="none" />
+  ))}
+
+  {/* Polygon */}
+  <polygon
+    points="200,80 230,160 315,160 245,210 270,295 200,245 130,295 155,210 85,160 170,160"
+    stroke="currentColor" strokeWidth="1.2" fill="currentColor" fillOpacity="0.07" 
+  />
+</svg>
 );
 
 const GeometricPattern = ({ className = "" }) => (
@@ -41,16 +47,6 @@ const GeometricPattern = ({ className = "" }) => (
   </svg>
 );
 
-const Divider = () => (
-  <div className="flex items-center justify-center gap-4 my-16">
-    <div className="h-px flex-1 bg-gradient-to-r from-transparent to-amber-400/20" />
-    <svg viewBox="0 0 48 48" className="w-8 h-8 text-amber-400/40" fill="currentColor">
-      <polygon points="24,4 27,17 40,12 31,22 44,27 31,27 36,40 24,32 12,40 17,27 4,27 17,22 8,12 21,17" />
-    </svg>
-    <div className="h-px flex-1 bg-gradient-to-l from-transparent to-amber-400/20" />
-  </div>
-);
-
 /* ─── Section Label ─── */
 const SectionLabel = ({ children }) => (
   <div className="inline-flex items-center gap-2 bg-amber-400/5 border border-amber-400/20 text-amber-400 text-[11px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 mb-6">
@@ -66,7 +62,7 @@ const HeroSection = () => (
   <section className="relative bg-[#080808] overflow-hidden text-white">
     <div className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none" style={{ opacity: 0.02 }}>
-        <span className="font-serif text-[45vw] text-amber-400 leading-none font-bold italic">ن</span>
+        <span className="font-serif text-[45vw] text-amber-400 leading-none font-bold italic"><Image src="/ANF-logo-icon.png" width={500} height={500} alt="An-Nujum Logo"/></span>
       </div>
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-amber-400/5 blur-[150px] pointer-events-none" />
 
@@ -191,7 +187,7 @@ const MissionSection = () => (
             <span className="text-amber-400">Driven by Service</span>
           </h2>
           <p className="text-slate-400 text-[17px] leading-[1.9] mb-6">
-            An-Nujum — meaning "The Stars" in Arabic — was born from a simple belief: that every soul deserves dignity, knowledge, and care. We work in the shadows so that others may shine.
+            An-Nujum — meaning &quot;The Stars&quot; in Arabic — was born from a simple belief: that every soul deserves dignity, knowledge, and care. We work in the shadows so that others may shine.
           </p>
           <p className="text-slate-400 text-[17px] leading-[1.9] mb-10">
             Guided by the Quranic principle of cooperation in goodness, we serve communities across districts — providing relief, education, and spiritual upliftment to those in need.
@@ -215,7 +211,7 @@ const MissionSection = () => (
           {/* Floating quote card */}
           <div className="absolute -bottom-8 -left-8 bg-[#111] border border-amber-400/20 rounded-[28px] p-7 max-w-xs shadow-2xl shadow-black/50">
             <p className="font-serif text-amber-400/50 text-xl italic mb-3" dir="rtl">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
-            <p className="text-white/60 text-sm leading-relaxed">"The best of people are those who are most beneficial to others."</p>
+            <p className="text-white/60 text-sm leading-relaxed">&quot;The best of people are those who are most beneficial to others.&quot;</p>
             <p className="text-amber-400/50 text-xs mt-3 uppercase tracking-widest">— Prophet Muhammad ﷺ</p>
           </div>
         </motion.div>
@@ -514,9 +510,9 @@ const TestimonialsSection = () => (
           <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: i * 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="bg-[#0e0e0e] border border-white/5 rounded-[32px] p-8 hover:border-amber-400/20 transition-all duration-500 group relative overflow-hidden">
-            <div className="absolute -right-4 -top-4 text-[90px] font-serif text-amber-400 opacity-[0.04] font-bold leading-none">"</div>
+            <div className="absolute -right-4 -top-4 text-[90px] font-serif text-amber-400 opacity-[0.04] font-bold leading-none">&quot;</div>
             <Icon icon="solar:quote-up-bold" className="text-3xl text-amber-400/20 mb-6 group-hover:text-amber-400/40 transition-colors" />
-            <p className="text-slate-300 text-[16px] leading-[1.9] mb-8 italic">"{t.quote}"</p>
+            <p className="text-slate-300 text-[16px] leading-[1.9] mb-8 italic">&quot;{t.quote}&quot;</p>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-amber-400/10 border border-amber-400/20 flex items-center justify-center font-serif text-xl text-amber-400 font-bold">
                 {t.initial}
@@ -586,7 +582,7 @@ const JoinSection = () => (
           <Icon icon="solar:users-group-rounded-bold" className="text-5xl text-black/60 mb-auto" />
           <div className="mt-12">
             <h3 className="font-serif text-4xl font-bold text-black mb-3">Volunteer With Us</h3>
-            <p className="text-black/60 text-[15px] leading-relaxed mb-8">Join our growing family of 100+ dedicated volunteers and be the light in someone's darkness.</p>
+            <p className="text-black/60 text-[15px] leading-relaxed mb-8">Join our growing family of 100+ dedicated volunteers and be the light in someone&apos;s darkness.</p>
             <Link href="/volunteer">
               <Button className="bg-black text-amber-400 font-bold px-8 h-12 rounded-full hover:bg-[#111] transition-all duration-300">
                 <Icon icon="solar:hand-heart-bold" /> Join as Volunteer
@@ -597,84 +593,6 @@ const JoinSection = () => (
       </div>
     </div>
   </section>
-);
-
-/* ─────────────────────────────────────────────
-   FOOTER
-───────────────────────────────────────────── */
-const Footer = () => (
-  <footer className="bg-[#050505] text-white border-t border-white/5 pt-20 pb-10">
-    <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-        {/* Brand */}
-        <div className="md:col-span-2">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center">
-              <span className="text-amber-400 font-serif text-xl font-bold">ن</span>
-            </div>
-            <div>
-              <p className="font-serif font-bold text-white text-lg leading-none">An-Nujum Foundation</p>
-              <p className="text-amber-400/50 text-[10px] uppercase tracking-[0.2em]">النجوم</p>
-            </div>
-          </div>
-          <p className="text-slate-500 text-[15px] leading-relaxed mb-6 max-w-xs">
-            Illuminating lives through compassion, education, and the values of Islam.
-          </p>
-          <div className="flex gap-3">
-            {["solar:facebook-bold", "solar:instagram-bold", "solar:youtube-bold", "solar:phone-bold"].map((ico, i) => (
-              <button key={i} className="w-10 h-10 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center hover:bg-amber-400 hover:border-amber-400 group transition-all duration-300">
-                <Icon icon={ico} className="text-lg text-white/40 group-hover:text-black transition-colors" />
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Quick Links */}
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.25em] text-amber-400/60 font-bold mb-6">Quick Links</p>
-          <ul className="space-y-3">
-            {["About Us", "Our Activities", "Donate", "Volunteer", "Gallery", "Contact"].map((l) => (
-              <li key={l}>
-                <Link href={`/${l.toLowerCase().replace(" ", "-")}`} className="text-slate-400 hover:text-amber-400 transition-colors text-sm">
-                  {l}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Contact */}
-        <div>
-          <p className="text-[11px] uppercase tracking-[0.25em] text-amber-400/60 font-bold mb-6">Contact</p>
-          <ul className="space-y-4 text-sm text-slate-400">
-            <li className="flex gap-3 items-start">
-              <Icon icon="solar:map-point-bold" className="text-amber-400/40 text-lg mt-0.5 flex-shrink-0" />
-              <span>An-Nujum Foundation Headquarters, Bangladesh</span>
-            </li>
-            <li className="flex gap-3 items-center">
-              <Icon icon="solar:phone-bold" className="text-amber-400/40 text-lg flex-shrink-0" />
-              <span>+880 1XXX-XXXXXX</span>
-            </li>
-            <li className="flex gap-3 items-center">
-              <Icon icon="solar:letter-bold" className="text-amber-400/40 text-lg flex-shrink-0" />
-              <span>info@annujum.org</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <Divider />
-
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-600">
-        <p>© 2024 An-Nujum Foundation. All rights reserved.</p>
-        <p className="font-serif text-amber-400/30 italic text-base" dir="rtl">رَبَّنَا تَقَبَّلْ مِنَّا</p>
-        <div className="flex gap-6">
-          <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-          <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
-        </div>
-      </div>
-    </div>
-  </footer>
 );
 
 /* ─────────────────────────────────────────────
