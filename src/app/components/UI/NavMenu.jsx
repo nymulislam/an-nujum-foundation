@@ -3,6 +3,7 @@ import { Button, Drawer } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
 import MyAccount from "./MyAccount";
+import { Icon } from "@iconify/react";
 
 const navItems = [
   { icon: House, label: "Home", href: "/" },
@@ -16,72 +17,90 @@ const navItems = [
 export function NavMenu({ scrolled }) {
   return (
     <Drawer>
+      {/* Trigger Button - Adaptive to Scroll */}
       <Button
         variant="ghost"
-        className={`border transition-colors ${
+        className={`border transition-all duration-300 rounded-full px-4 ${
           scrolled
-            ? "border-stone-200 hover:bg-amber-50 text-stone-700"
-            : "border-white/20 hover:bg-white/10 text-white"
+            ? "border-stone-200 bg-white/80 backdrop-blur-md text-stone-800 shadow-sm hover:bg-stone-50"
+            : "border-white/30 bg-transparent text-white hover:bg-white/10"
         }`}
       >
-        <Bars />
+        <Bars className="size-5" />
       </Button>
 
-      <Drawer.Backdrop className="bg-black/40 backdrop-blur-sm">
+      <Drawer.Backdrop className="bg-stone-900/40 backdrop-blur-sm">
         <Drawer.Content placement="left">
-          <Drawer.Dialog className="bg-white border-none shadow-2xl h-full flex flex-col w-80">
-
-            {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-stone-100">
+          <Drawer.Dialog className="bg-white border-none shadow-2xl h-full flex flex-col w-[320px]">
+            
+            {/* Header Area */}
+            <div className="flex items-center justify-between px-6 py-5 border-b border-stone-100">
               <Image
-                width={140}
-                height={40}
+                width={130}
+                height={36}
                 src="/ANF-Eng-Horizontal-Black.png"
                 alt="An-Nujum Foundation"
                 className="object-contain"
               />
-              <Drawer.CloseTrigger className="p-2 text-stone-400 hover:bg-stone-100 hover:text-stone-700 rounded-full transition-colors" />
+              <Drawer.CloseTrigger className="p-2 text-stone-400 hover:bg-stone-100 hover:text-stone-900 rounded-full transition-colors">
+                <Icon icon="solar:close-circle-bold" className="text-xl" />
+              </Drawer.CloseTrigger>
             </div>
 
-            {/* Decorative Arabic */}
-            <div className="px-5 pt-5 pb-2">
-              <p className="font-serif text-amber-400/40 text-lg italic text-right" dir="rtl">
+            {/* Subtle Arabic Motif Section */}
+            <div className="px-6 pt-6 pb-2 relative overflow-hidden group">
+              <p className="font-serif text-yellow-600/70 text-lg italic text-right leading-relaxed font-semibold" dir="rtl">
                 وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ
               </p>
-              <div className="h-px bg-gradient-to-r from-amber-400/30 via-amber-400/10 to-transparent mt-3" />
+              <div className="h-0.5 w-full bg-linear-to-r from-yellow-400/50 via-yellow-100/15 to-transparent mt-3" />
+              {/* Floating Decorative Star Backdrop */}
+              <div className="absolute -right-4 -top-4 opacity-[0.05] pointer-events-none group-hover:rotate-45 transition-transform duration-1000">
+                <Icon icon="solar:star-bold" className="text-7xl text-yellow-400" />
+              </div>
             </div>
 
-            {/* Nav Links */}
-            <Drawer.Body className="py-3 flex-1">
-              <nav className="flex flex-col gap-1 px-3">
+            {/* Navigation Body */}
+            <Drawer.Body className="py-4 flex-1">
+              <nav className="flex flex-col gap-1.5 px-4">
                 {navItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="flex items-center gap-4 rounded-xl px-4 py-3.5 text-sm font-semibold text-stone-500 transition-all hover:bg-amber-50 hover:text-amber-700 group"
+                    className="flex items-center gap-4 rounded-2xl px-4 py-3.5 text-base font-medium text-stone-700 transition-all hover:bg-yellow-50 hover:text-yellow-700 group active:scale-[0.98]"
                   >
-                    <div className="w-9 h-9 rounded-lg bg-stone-100 flex items-center justify-center group-hover:bg-amber-100 transition-colors flex-shrink-0">
-                      <item.icon className="size-4 text-stone-400 group-hover:text-amber-600 transition-colors" />
+                    <div className="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center group-hover:bg-yellow-100 group-hover:shadow-inner transition-all shrink-0">
+                      <item.icon className="size-5 text-yellow-600 group-hover:text-yellow-700 transition-colors" />
                     </div>
-                    <span>{item.label}</span>
+                    <span className="tracking-tight">{item.label}</span>
                   </Link>
                 ))}
               </nav>
             </Drawer.Body>
 
-            {/* Donate CTA */}
-            <div className="px-5 pb-4">
+            {/* Actions Area */}
+            <div className="px-6 pb-6 space-y-4">
+              {/* Primary CTA */}
               <Link
                 href="/donate"
-                className="flex items-center justify-center gap-2 w-full bg-amber-400 text-black font-black py-3.5 rounded-xl text-sm hover:bg-amber-500 transition-all duration-300 shadow-[0_4px_20px_rgba(251,191,36,0.3)]"
+                className="flex items-center justify-center gap-2 w-full bg-yellow-400 text-black font-bold py-4 rounded-2xl text-sm hover:bg-yellow-500 transition-all duration-300 shadow-xl shadow-yellow-400/25 active:translate-y-0.5"
               >
+                <Icon icon="solar:heart-bold" className="text-lg" />
                 Donate Now
               </Link>
+
+              {/* Account Section - Integration with Light Theme */}
+              <div className="pt-4 border-t border-stone-100">
+                <div className="p-1 rounded-2xl bg-stone-50/80 border border-stone-100">
+                  <MyAccount />
+                </div>
+              </div>
             </div>
 
-            {/* Bottom */}
-            <div className="px-5 pb-5 pt-3 border-t border-stone-100 bg-stone-50/50">
-              <MyAccount />
+            {/* Footer Tag */}
+            <div className="px-6 py-4 bg-stone-50 text-center">
+              <p className="text-[10px] text-stone-400 uppercase tracking-widest font-bold">
+                Serving the Ummah since 2021
+              </p>
             </div>
 
           </Drawer.Dialog>

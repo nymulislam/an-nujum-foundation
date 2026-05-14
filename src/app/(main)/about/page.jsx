@@ -7,90 +7,136 @@ import Link from "next/link";
 import { Button } from "@heroui/react";
 import { useRef, useState } from "react";
 
-/* ─── Decorative SVGs ─── */
+/* ─── Decorative SVGs (Light Theme Optimized) ─── */
+
 const IslamicStar = ({ className = "" }) => (
-    <svg viewBox="0 0 400 400" fill="none" className={className} aria-hidden="true">
-        {/* Background Lines */}
-        {[0, 30, 60, 90, 120, 150].map((deg) => (
-            <line key={deg} x1="200" y1="40" x2="200" y2="360"
-                stroke="currentColor" strokeWidth="0.7"
-                transform={`rotate(${deg} 200 200)`} />
-        ))}
+  <svg viewBox="0 0 400 400" fill="none" className={className} aria-hidden="true">
+    {[0, 30, 60, 90, 120, 150].map((deg) => (
+      <line
+        key={deg}
+        x1="200"
+        y1="40"
+        x2="200"
+        y2="360"
+        stroke="currentColor"
+        strokeWidth="0.8"
+        opacity="0.2"
+        transform={`rotate(${deg} 200 200)`}
+      />
+    ))}
 
-        {/* Circles */}
-        {[55, 85, 115, 150].map((r) => (
-            <circle key={r} cx="200" cy="200" r={r}
-                stroke="currentColor" strokeWidth="0.6" fill="none" />
-        ))}
+    {[55, 85, 115, 150].map((r) => (
+      <circle
+        key={r}
+        cx="200"
+        cy="200"
+        r={r}
+        stroke="currentColor"
+        strokeWidth="0.7"
+        opacity="0.15"
+        fill="none"
+      />
+    ))}
 
-        {/* Polygon */}
-        <polygon
-            points="200,80 230,160 315,160 245,210 270,295 200,245 130,295 155,210 85,160 170,160"
-            stroke="currentColor" strokeWidth="1.2" fill="currentColor" fillOpacity="0.07"
-        />
-    </svg>
+    <polygon
+      points="200,80 230,160 315,160 245,210 270,295 200,245 130,295 155,210 85,160 170,160"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      fill="currentColor"
+      fillOpacity="0.05"
+    />
+  </svg>
 );
 
 const ArabicLattice = ({ className = "" }) => (
-    <svg viewBox="0 0 300 300" className={className} aria-hidden="true">
-        {Array.from({ length: 6 }).map((_, row) =>
-            Array.from({ length: 6 }).map((_, col) => (
-                <g key={`${row}-${col}`} transform={`translate(${col * 50}, ${row * 50})`}>
-                    <polygon points="25,3 47,14 47,36 25,47 3,36 3,14"
-                        stroke="currentColor" strokeWidth="0.35" fill="none" />
-                    <polygon points="25,10 40,18 40,32 25,40 10,32 10,18"
-                        stroke="currentColor" strokeWidth="0.25" fill="none" />
-                    <circle cx="25" cy="25" r="4" stroke="currentColor" strokeWidth="0.3" fill="none" />
-                </g>
-            ))
-        )}
-    </svg>
+  <svg viewBox="0 0 300 300" className={className} aria-hidden="true">
+    {Array.from({ length: 6 }).map((_, row) =>
+      Array.from({ length: 6 }).map((_, col) => (
+        <g key={`${row}-${col}`} transform={`translate(${col * 50}, ${row * 50})`}>
+          <polygon
+            points="25,3 47,14 47,36 25,47 3,36 3,14"
+            stroke="currentColor"
+            strokeWidth="0.35"
+            fill="none"
+          />
+          <polygon
+            points="25,10 40,18 40,32 25,40 10,32 10,18"
+            stroke="currentColor"
+            strokeWidth="0.25"
+            fill="none"
+          />
+          <circle cx="25" cy="25" r="4" stroke="currentColor" strokeWidth="0.3" fill="none" />
+        </g>
+      ))
+    )}
+  </svg>
 );
 
 const MughalArch = ({ className = "" }) => (
-    <svg viewBox="0 0 200 280" fill="none" className={className} aria-hidden="true">
-        <path d="M10 280 L10 120 Q10 20 100 20 Q190 20 190 120 L190 280"
-            stroke="currentColor" strokeWidth="0.8" fill="currentColor" fillOpacity="0.03" />
-        <path d="M25 280 L25 125 Q25 40 100 40 Q175 40 175 125 L175 280"
-            stroke="currentColor" strokeWidth="0.5" fill="none" />
-        <path d="M40 280 L40 130 Q40 60 100 60 Q160 60 160 130 L160 280"
-            stroke="currentColor" strokeWidth="0.3" fill="none" />
-        {[70, 100, 130].map((y) => (
-            <line key={y} x1="10" y1={y} x2="190" y2={y} stroke="currentColor" strokeWidth="0.2" />
-        ))}
-    </svg>
+  <svg viewBox="0 0 200 280" fill="none" className={className} aria-hidden="true">
+    <path
+      d="M10 280 L10 120 Q10 20 100 20 Q190 20 190 120 L190 280"
+      stroke="currentColor"
+      strokeWidth="0.8"
+      fill="currentColor"
+      fillOpacity="0.03"
+    />
+    <path
+      d="M25 280 L25 125 Q25 40 100 40 Q175 40 175 125 L175 280"
+      stroke="currentColor"
+      strokeWidth="0.5"
+      fill="none"
+    />
+    <path
+      d="M40 280 L40 130 Q40 60 100 60 Q160 60 160 130 L160 280"
+      stroke="currentColor"
+      strokeWidth="0.3"
+      fill="none"
+    />
+  </svg>
 );
 
-const SectionLabel = ({ children, light = false }) => (
-    <div className={`inline-flex items-center gap-2 border text-[11px] font-bold tracking-[0.22em] uppercase rounded-full px-5 py-2 mb-6 ${light
-        ? "bg-white/5 border-white/20 text-white/60"
-        : "bg-amber-400/5 border-amber-400/20 text-amber-400"
-        }`}>
-        <span className={`w-1 h-1 rounded-full ${light ? "bg-white/40" : "bg-amber-400"}`} />
-        {children}
-    </div>
+const SectionLabel = ({ children }) => (
+  <div className="inline-flex items-center gap-3 mb-8">
+    <div className="h-[2px] w-10 bg-amber-500" />
+    <span className="text-stone-700 font-black text-xs uppercase tracking-[0.3em]">
+      {children}
+    </span>
+  </div>
 );
 
 const GoldDivider = () => (
-    <div className="flex items-center justify-center gap-5 my-20">
-        <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-400/20 to-amber-400/40" />
-        {/* Big Star */}
-        <svg viewBox="0 0 60 60" className="w-7 h-7 text-amber-400/50 flex-shrink-0" fill="currentColor">
-            <polygon points="30,5 37,22 55,22 41,33 46,51 30,40 14,51 19,33 5,22 23,22" />
-        </svg>
+  <div className="flex items-center justify-center gap-5 my-20">
+    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-amber-400/30 to-amber-400/60" />
 
-        {/* Small Star */}
-        <svg viewBox="0 0 40 40" className="w-4 h-4 text-amber-400/30 flex-shrink-0" fill="currentColor">
-            <polygon points="20,3 25,15 37,15 27,23 31,35 20,27 9,35 13,23 3,15 15,15" />
-        </svg>
+    <svg
+      viewBox="0 0 60 60"
+      className="w-7 h-7 text-amber-400/70 flex-shrink-0"
+      fill="currentColor"
+    >
+      <polygon points="30,5 37,22 55,22 41,33 46,51 30,40 14,51 19,33 5,22 23,22" />
+    </svg>
 
-        {/* Big Star */}
-        <svg viewBox="0 0 60 60" className="w-7 h-7 text-amber-400/50 flex-shrink-0" fill="currentColor">
-            <polygon points="30,5 37,22 55,22 41,33 46,51 30,40 14,51 19,33 5,22 23,22" />
-        </svg>
-        <div className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-400/20 to-amber-400/40" />
-    </div>
+    <svg
+      viewBox="0 0 40 40"
+      className="w-4 h-4 text-amber-400/50 flex-shrink-0"
+      fill="currentColor"
+    >
+      <polygon points="20,3 25,15 37,15 27,23 31,35 20,27 9,35 13,23 3,15 15,15" />
+    </svg>
+
+    <svg
+      viewBox="0 0 60 60"
+      className="w-7 h-7 text-amber-400/70 flex-shrink-0"
+      fill="currentColor"
+    >
+      <polygon points="30,5 37,22 55,22 41,33 46,51 30,40 14,51 19,33 5,22 23,22" />
+    </svg>
+
+    <div className="h-px flex-1 bg-gradient-to-l from-transparent via-amber-400/30 to-amber-400/60" />
+  </div>
 );
+
 
 /* ═══════════════════════════════════════
    1. HERO — ABOUT PAGE

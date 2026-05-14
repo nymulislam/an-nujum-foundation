@@ -42,8 +42,8 @@ const GeometricPattern = ({ className = "" }) => (
 );
 
 const SectionLabel = ({ children }) => (
-  <div className="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/30 text-amber-700 text-[11px] font-bold tracking-[0.2em] uppercase rounded-full px-5 py-2 mb-6">
-    <span className="w-1 h-1 rounded-full bg-amber-500" />
+  <div className="inline-flex items-center gap-2 bg-yellow-400/15 border border-yellow-400/40 text-yellow-700 text-xs sm:text-sm font-bold tracking-[0.2em] uppercase rounded-full px-6 py-3 mb-8">
+    <span className="w-2 h-2 rounded-full bg-yellow-500" />
     {children}
   </div>
 );
@@ -52,54 +52,54 @@ const SectionLabel = ({ children }) => (
    HERO SECTION  (keeps dark — hero is always impactful)
 ───────────────────────────────────────────── */
 const HeroSection = () => (
-  <section className="relative bg-white text-stone-800 overflow-hidden">
+  <section className="relative bg-[#FAFAFA] text-stone-800 overflow-hidden">
 
     {/* Logo watermark */}
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.04]">
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.03]">
       <Image src="/ANF-logo-icon.png" width={520} height={520} alt="" aria-hidden />
     </div>
 
-    {/* Glow */}
-    <div className="absolute top-[-8%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] rounded-full bg-amber-400/6 blur-[160px] pointer-events-none" />
+    {/* Soft Glow */}
+    <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full bg-yellow-200/20 blur-[140px] pointer-events-none" />
 
     {/* Geometric corner */}
-    <div className="absolute top-0 right-0 w-80 h-80 text-amber-400/[0.04] rotate-12 pointer-events-none">
+    <div className="absolute top-0 right-0 w-80 h-80 text-yellow-500/[0.05] rotate-12 pointer-events-none">
       <GeometricPattern className="w-full h-full" />
     </div>
 
-    <div className="relative min-h-[88vh] flex items-center justify-center">
-      <div className="container mx-auto px-4 text-center relative z-10 pt-36 pb-24">
+    <div className="relative min-h-[90vh] flex items-center justify-center">
+      <div className="container mx-auto px-4 text-center relative z-10 pt-32 pb-20">
 
         {/* Badge */}
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <div className="inline-flex items-center gap-2 bg-amber-400/8 border border-amber-400/20 text-amber-400 text-[11px] font-bold tracking-[0.22em] uppercase rounded-full px-5 py-2 mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse shadow-[0_0_8px_#FBBF24]" />
+          <div className="inline-flex items-center gap-2 bg-black/5 border border-yellow-400/50 text-yellow-700 text-xs sm:text-sm font-bold tracking-[0.22em] uppercase rounded-full px-6 py-3 mb-8 shadow-lg shadow-yellow-400/10">
+            <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse shadow-[0_0_8px_rgba(234,179,8,0.6)]" />
             Non-Political · Non-Profit · Charitable
           </div>
         </motion.div>
 
         {/* Arabic verse */}
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.08, duration: 0.7 }}
-          className="font-serif text-2xl text-amber-400/25 italic mb-6 leading-relaxed" dir="rtl">
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1, duration: 0.7 }}
+          className="font-serif text-2xl md:text-4xl text-yellow-600 italic mb-8 leading-relaxed font-medium" dir="rtl">
           وَتَعَاوَنُوا عَلَى الْبِرِّ وَالتَّقْوَىٰ
         </motion.p>
 
         {/* Headline */}
         <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.14 }}
-          className="font-serif text-5xl md:text-8xl font-bold text-white leading-[1.05] mb-8 max-w-5xl mx-auto">
+          className="font-serif text-5xl md:text-8xl font-bold text-black leading-[1.05] mb-8 max-w-5xl mx-auto tracking-tight">
           For the Ummah,{" "}
-          <span className="text-amber-400 relative inline-block">
+          <span className="text-yellow-400 relative inline-block">
             For Humanity
             <motion.span initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 0.75, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-2 left-0 right-0 h-[3px] bg-amber-400/30 rounded-full origin-left" />
+              className="absolute -bottom-2 left-0 right-0 h-[3px] bg-yellow-400/30 rounded-full origin-left" />
           </span>
         </motion.h1>
 
-        {/* Sub */}
+        {/* Subtitle */}
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.22, duration: 0.7 }}
-          className="text-[17px] text-slate-400 max-w-2xl mx-auto leading-[1.9] mb-12">
+          className="text-lg sm:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed mb-14">
           An-Nujum Foundation is a tireless endeavor to spread the light of humanity,
           education, and Islamic values for the welfare of the underprivileged.
         </motion.p>
@@ -108,12 +108,12 @@ const HeroSection = () => (
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.6 }}
           className="flex flex-wrap gap-4 justify-center">
           <Link href="/donate">
-            <Button size="lg" className="bg-amber-400 text-black font-bold px-10 h-14 rounded-full shadow-[0_10px_40px_rgba(251,191,36,0.25)] hover:bg-amber-300 transition-all duration-300">
+            <Button size="lg" className="bg-yellow-400 text-black font-bold px-10 h-14 rounded-full shadow-lg shadow-yellow-400/30 hover:bg-yellow-500 transition-all duration-300">
               <Icon icon="solar:hand-money-bold" className="text-xl" /> Donate Now
             </Button>
           </Link>
           <Link href="/activities">
-            <Button size="lg" variant="bordered" className="border-white/20 text-white h-14 px-10 rounded-full hover:bg-white/8 hover:border-white/40 font-semibold transition-all duration-300">
+            <Button size="lg" variant="bordered" className="border-2 border-black text-black h-14 px-10 rounded-full hover:bg-black hover:text-yellow-400 font-semibold transition-all duration-300">
               Explore Activities
             </Button>
           </Link>
@@ -121,45 +121,39 @@ const HeroSection = () => (
       </div>
     </div>
 
-    {/* Stats mosaic — transitional dark-to-light feel */}
-    <div className="container mx-auto px-4 pb-0 relative z-10">
+    {/* Hero Image Section */}
+    <div className="container mx-auto px-4 relative z-10 -mt-10">
       <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="grid grid-cols-12 gap-5">
+        transition={{ duration: 0.8 }}
+        className="grid grid-cols-12 gap-6 pb-20">
 
-        {/* Hero photo */}
-        <div className="col-span-12 md:col-span-7 rounded-t-[40px] overflow-hidden h-72 md:h-[440px] relative group border-x border-t border-white/5">
+        <div className="col-span-12 md:col-span-8 rounded-[40px] overflow-hidden h-[300px] md:h-[500px] relative shadow-2xl shadow-stone-200 border border-white">
           <Image
-            src="/nujum-01.jpg"
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop"
             alt="An-Nujum Foundation work"
             fill
-            className="object-cover group-hover:scale-105 transition-transform duration-1000 opacity-70"
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0e] via-[#0c0c0e]/10 to-transparent" />
-          <div className="absolute bottom-10 left-10 right-10">
-            <p className="text-white font-bold text-2xl leading-snug drop-shadow">Commitment to Humanity</p>
-            <p className="text-amber-400/80 text-xs mt-2 uppercase tracking-[0.3em] font-bold">Serving Since 2021</p>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          <div className="absolute bottom-8 left-8">
+            <p className="text-white font-bold text-2xl sm:text-3xl">Commitment to Humanity</p>
+            <p className="text-yellow-300 text-sm mt-2 uppercase tracking-widest font-bold">Serving Since 2021</p>
           </div>
         </div>
 
-        {/* Stat cards */}
-        <div className="col-span-12 md:col-span-5 grid grid-rows-2 gap-5">
-          <div className="bg-amber-400 rounded-t-[36px] md:rounded-[36px] p-10 flex flex-col justify-between shadow-xl shadow-amber-400/15 hover:bg-amber-300 transition-colors duration-500 group">
-            <Icon icon="solar:heart-bold" className="text-5xl text-black/70" />
+        <div className="col-span-12 md:col-span-4 flex flex-col gap-6">
+          <div className="bg-yellow-400 rounded-[36px] p-8 flex-1 flex flex-col justify-between text-black shadow-xl shadow-yellow-400/25">
+            <Icon icon="solar:heart-bold" className="text-5xl text-black/80" />
             <div>
-              <p className="font-serif text-6xl font-bold text-black tracking-tighter">500+</p>
-              <p className="text-[10px] font-black text-black/50 uppercase tracking-[0.2em] mt-2">Beneficiary Families</p>
+              <p className="font-serif text-6xl font-bold tracking-tighter">500+</p>
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] mt-3 opacity-90">Beneficiary Families</p>
             </div>
           </div>
-          <div className="bg-[#111] border border-white/5 rounded-[36px] p-10 flex flex-col justify-between relative overflow-hidden hover:border-amber-400/30 transition-colors duration-500 group">
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-              className="absolute -right-10 -bottom-10 w-44 h-44 text-amber-400 opacity-[0.06]">
-              <IslamicStar className="w-full h-full" />
-            </motion.div>
-            <Icon icon="solar:book-bold" className="text-5xl text-amber-400/50 group-hover:text-amber-400 transition-colors" />
+          <div className="bg-black rounded-[36px] p-8 flex-1 flex flex-col justify-between shadow-xl shadow-black/25">
+            <Icon icon="solar:book-bold" className="text-5xl text-yellow-400" />
             <div>
-              <p className="font-serif text-6xl font-bold text-amber-400 tracking-tighter">80+</p>
-              <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.2em] mt-2 group-hover:text-white/50 transition-colors">Active Scholarships</p>
+              <p className="font-serif text-6xl font-bold text-yellow-400 tracking-tighter">80+</p>
+              <p className="text-xs sm:text-sm font-bold text-yellow-300 uppercase tracking-[0.15em] mt-3">Active Scholarships</p>
             </div>
           </div>
         </div>
@@ -169,28 +163,72 @@ const HeroSection = () => (
 );
 
 /* ─────────────────────────────────────────────
-   QUICK STATS BAR  (amber strip — transition)
+   QUICK STATS BAR  (yellow bar — transition)
 ───────────────────────────────────────────── */
 const StatsBar = () => (
-  <div className="bg-stone-900 border-t border-white/5">
-    <div className="container mx-auto px-4">
-      <div className="grid grid-cols-3 divide-x divide-white/5">
+  <div className="relative bg-gradient-to-b from-white to-stone-50 border-y border-stone-100/80 overflow-hidden">
+    {/* subtle background glow */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-amber-200/20 blur-3xl rounded-full" />
+    </div>
+
+    <div className="container mx-auto px-4 relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-stone-200/60">
+
         {[
-          { icon: "solar:users-group-rounded-bold", val: "100+", label: "Dedicated Volunteers" },
-          { icon: "solar:buildings-bold", val: "5+", label: "Years of Excellence" },
-          { icon: "solar:global-bold", val: "3+", label: "Operating Districts" },
+          {
+            icon: "solar:users-group-rounded-bold",
+            val: "100+",
+            label: "Dedicated Volunteers",
+          },
+          {
+            icon: "solar:buildings-bold",
+            val: "5+",
+            label: "Years of Excellence",
+          },
+          {
+            icon: "solar:global-bold",
+            val: "3+",
+            label: "Operating Districts",
+          },
         ].map((s, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="flex items-center gap-5 px-8 py-7 group hover:bg-white/3 transition-colors">
-            <div className="w-12 h-12 rounded-xl bg-amber-400/10 flex items-center justify-center flex-shrink-0">
-              <Icon icon={s.icon} className="text-2xl text-amber-400" />
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative flex items-center gap-6 px-10 py-14 hover:bg-white/70 transition-all duration-500"
+          >
+            {/* Icon container */}
+            <div className="relative flex-shrink-0">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-100 to-yellow-50 border border-amber-200/40 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all duration-500">
+                <Icon
+                  icon={s.icon}
+                  className="text-3xl text-amber-700 group-hover:text-amber-800 transition-colors"
+                />
+              </div>
+
+              {/* soft glow ring on hover */}
+              <div className="absolute inset-0 rounded-2xl scale-0 group-hover:scale-110 bg-amber-300/10 blur-xl transition-transform duration-500" />
             </div>
-            <div>
-              <p className="font-serif text-2xl font-bold text-amber-400 leading-none">{s.val}</p>
-              <p className="text-[10px] font-bold text-white/30 uppercase tracking-[0.18em] mt-1.5">{s.label}</p>
+
+            {/* Content */}
+            <div className="flex flex-col">
+              <p className="font-serif text-4xl font-bold text-stone-900 leading-none tracking-tight">
+                {s.val}
+              </p>
+
+              <p className="text-[11px] sm:text-xs font-bold text-stone-500 uppercase tracking-[0.2em] mt-2 group-hover:text-stone-700 transition-colors">
+                {s.label}
+              </p>
+
+              {/* underline accent */}
+              <div className="mt-3 w-0 group-hover:w-10 h-[2px] bg-amber-400 transition-all duration-500 rounded-full" />
             </div>
+
+            {/* subtle vertical highlight line */}
+            <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-amber-300/0 via-amber-300/30 to-amber-300/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </motion.div>
         ))}
       </div>
@@ -204,7 +242,7 @@ const StatsBar = () => (
 const MissionSection = () => (
   <section className="bg-white text-stone-800 py-32 relative overflow-hidden">
     {/* Subtle pattern */}
-    <div className="absolute right-0 top-0 w-[500px] h-[500px] text-amber-400/[0.06] pointer-events-none">
+    <div className="absolute right-0 top-0 w-[500px] h-[500px] text-yellow-400/[0.06] pointer-events-none">
       <GeometricPattern className="w-full h-full" />
     </div>
 
@@ -214,20 +252,20 @@ const MissionSection = () => (
         <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
           <SectionLabel>Our Mission</SectionLabel>
-          <h2 className="font-serif text-5xl md:text-6xl font-bold text-stone-900 leading-[1.1] mb-8">
+          <h2 className="font-serif text-5xl md:text-7xl font-bold text-black leading-[1.1] mb-10">
             Rooted in Faith,<br />
-            <span className="text-amber-500">Driven by Service</span>
+            <span className="text-yellow-500">Driven by Service</span>
           </h2>
-          <p className="text-stone-500 text-[17px] leading-[1.9] mb-5">
+          <p className="text-stone-600 text-lg sm:text-xl leading-[1.9] mb-6">
             An-Nujum — meaning &quot;The Stars&quot; in Arabic — was born from a simple belief: that every soul deserves dignity, knowledge, and care. We work so that others may shine.
           </p>
-          <p className="text-stone-500 text-[17px] leading-[1.9] mb-10">
+          <p className="text-stone-600 text-lg sm:text-xl leading-[1.9] mb-10">
             Guided by the Quranic principle of cooperation in goodness, we serve communities across districts — providing relief, education, and spiritual upliftment to those in need.
           </p>
           <div className="flex flex-wrap gap-3">
             {["Zakat Eligible", "Transparent Funds", "Community First"].map((tag) => (
               <span key={tag}
-                className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber-700 border border-amber-300 rounded-full px-4 py-2 bg-amber-50">
+                className="text-xs sm:text-sm font-bold uppercase tracking-[0.15em] text-yellow-700 border-2 border-yellow-400 rounded-full px-4 py-2.5 bg-yellow-100">
                 {tag}
               </span>
             ))}
@@ -236,17 +274,17 @@ const MissionSection = () => (
 
         <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className="relative">
-          <div className="relative rounded-[40px] overflow-hidden h-[460px] border border-stone-100 shadow-xl shadow-stone-200">
+          <div className="relative rounded-[40px] overflow-hidden h-[460px] border-2 border-yellow-300 shadow-xl shadow-yellow-400/20">
             <Image
               src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=900&auto=format&fit=crop"
               alt="Community service" fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
           </div>
           {/* Floating hadith card */}
-          <div className="absolute -bottom-8 -left-6 bg-white border border-amber-200 rounded-[24px] p-6 max-w-xs shadow-xl shadow-amber-400/10">
-            <p className="font-serif text-amber-500/70 text-xl italic mb-3" dir="rtl">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
-            <p className="text-stone-500 text-sm leading-relaxed">&quot;The best of people are those most beneficial to others.&quot;</p>
-            <p className="text-amber-500/60 text-xs mt-3 uppercase tracking-widest">— Prophet Muhammad ﷺ</p>
+          <div className="absolute -bottom-8 -left-6 bg-yellow-50 border-2 border-yellow-400 rounded-[24px] p-7 max-w-xs shadow-xl shadow-yellow-400/25">
+            <p className="font-serif text-yellow-700 text-2xl italic mb-4 font-semibold" dir="rtl">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</p>
+            <p className="text-black text-base leading-relaxed font-medium">&quot;The best of people are those most beneficial to others.&quot;</p>
+            <p className="text-yellow-700 text-sm mt-4 uppercase tracking-widest font-bold">— Prophet Muhammad ﷺ</p>
           </div>
         </motion.div>
       </div>
@@ -267,94 +305,197 @@ const programs = [
 ];
 
 const ProgramsSection = () => (
-  <section className="bg-stone-50 text-stone-800 py-32 relative overflow-hidden">
-    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-amber-400/[0.06] blur-[200px] pointer-events-none" />
+  <section className="relative bg-stone-50 py-32 overflow-hidden">
+    {/* ambient light */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] bg-yellow-100/25 blur-[140px]" />
+    </div>
+
     <div className="container mx-auto px-4 relative z-10">
-      <div className="text-center mb-20">
-        <SectionLabel>What We Do</SectionLabel>
-        <h2 className="font-serif text-5xl md:text-6xl font-bold text-stone-900">
-          Our Programs &{" "}
-          <span className="text-amber-500">Initiatives</span>
+
+      {/* HEADER */}
+      <div className="text-center mb-24">
+        <span className="text-xs tracking-[0.4em] uppercase text-stone-500 font-bold">
+          Programs Overview
+        </span>
+
+        <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 mt-6 leading-[1.05]">
+          Impact through{" "}
+          <span className="text-yellow-500 relative">
+            structured care
+            <span className="absolute -bottom-3 left-0 right-0 h-[3px] bg-yellow-300/40" />
+          </span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {programs.map((p, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="group bg-white border border-stone-100 rounded-[28px] p-8 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-400/8 transition-all duration-500 relative overflow-hidden cursor-pointer">
-            {/* Arabic watermark */}
-            <div className="absolute -right-1 -top-3 text-[78px] font-serif text-amber-400 opacity-[0.06] font-bold leading-none select-none group-hover:opacity-[0.12] transition-opacity duration-500" dir="rtl">
-              {p.arabicWord}
-            </div>
-            <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center mb-6 group-hover:bg-amber-400 group-hover:border-amber-400 transition-all duration-500">
-              <Icon icon={p.icon} className="text-2xl text-amber-500 group-hover:text-black transition-colors duration-500" />
-            </div>
-            <h3 className="font-bold text-stone-800 text-xl mb-3 group-hover:text-amber-700 transition-colors duration-300">{p.title}</h3>
-            <p className="text-stone-400 text-[15px] leading-[1.85] mb-6">{p.desc}</p>
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-700 bg-amber-50 border border-amber-200 rounded-full px-4 py-1.5">
-                {p.count}
-              </span>
-              <span className="text-xs text-stone-300 group-hover:text-amber-400/60 transition-colors font-serif italic">{p.arabicMeaning}</span>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+      {/* EXHIBITION GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
 
-      <div className="text-center mt-14">
-        <Link href="/activities">
-          <Button size="lg" variant="bordered"
-            className="border-amber-400 text-amber-700 h-14 px-12 rounded-full hover:bg-amber-400 hover:text-black font-semibold transition-all duration-300">
-            View All Activities <Icon icon="solar:arrow-right-bold" />
-          </Button>
-        </Link>
+        {programs.map((p, i) => (
+          <div
+            key={i}
+            className="group relative bg-white border border-stone-100 rounded-[34px] p-10 hover:shadow-2xl transition-all duration-500 overflow-hidden"
+          >
+            {/* side index bar */}
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-yellow-400/20 group-hover:bg-yellow-400 transition-all duration-500" />
+
+            {/* top row */}
+            <div className="flex items-start gap-6">
+
+              {/* icon */}
+              <div className="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center group-hover:bg-yellow-200 transition">
+                <Icon icon={p.icon} className="text-3xl text-yellow-700" />
+              </div>
+
+              {/* text */}
+              <div className="flex-1">
+                <h3 className="font-serif text-2xl font-bold text-stone-900 mb-3 group-hover:text-yellow-600 transition-colors">
+                  {p.title}
+                </h3>
+
+                <p className="text-stone-600 text-base leading-relaxed mb-6">
+                  {p.desc}
+                </p>
+
+                {/* bottom meta */}
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-stone-500">
+                    {p.count}
+                  </span>
+
+                  <span className="text-yellow-500 text-sm font-medium">
+                    {p.arabicWord} · {p.arabicMeaning}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* hover glow overlay */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-tr from-yellow-50/40 to-transparent" />
+          </div>
+        ))}
+
       </div>
     </div>
   </section>
 );
 
 /* ─────────────────────────────────────────────
-   IMPACT  — stays amber (brand moment)
+   IMPACT  — stays yellow (brand moment)
 ───────────────────────────────────────────── */
 const ImpactSection = () => (
-  <section className="bg-amber-400 py-24 relative overflow-hidden">
-    <motion.div animate={{ rotate: 360 }} transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
-      className="absolute -left-16 top-1/2 -translate-y-1/2 w-72 h-72 text-black/5">
+  <section className="relative bg-gradient-to-b from-yellow-400 via-amber-300 to-yellow-400 py-32 overflow-hidden">
+
+    {/* Ambient glow */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-white/20 blur-3xl rounded-full" />
+      <div className="absolute bottom-[-120px] left-1/2 -translate-x-1/2 w-[600px] h-[250px] bg-black/10 blur-3xl rounded-full" />
+    </div>
+
+    {/* ornaments */}
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+      className="absolute -left-20 top-1/2 -translate-y-1/2 w-80 h-80 text-black/10"
+    >
       <IslamicStar className="w-full h-full" />
     </motion.div>
-    <motion.div animate={{ rotate: -360 }} transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-      className="absolute -right-16 top-1/2 -translate-y-1/2 w-72 h-72 text-black/5">
+
+    <motion.div
+      animate={{ rotate: -360 }}
+      transition={{ duration: 110, repeat: Infinity, ease: "linear" }}
+      className="absolute -right-20 top-1/2 -translate-y-1/2 w-80 h-80 text-black/10"
+    >
       <IslamicStar className="w-full h-full" />
     </motion.div>
 
     <div className="container mx-auto px-4 relative z-10">
-      <div className="text-center mb-14">
-        <p className="font-serif text-4xl md:text-5xl font-bold text-black mb-3">Our Impact at a Glance</p>
-        <p className="text-black/60 text-lg">Alhamdulillah, every act of giving leaves a lasting mark.</p>
+
+      {/* Header */}
+      <div className="text-center mb-20">
+        <p className="font-serif text-4xl md:text-6xl font-bold text-black mb-4 leading-tight">
+          Our Impact at a Glance
+        </p>
+
+        <div className="w-24 h-[3px] bg-black/40 mx-auto mb-6 rounded-full" />
+
+        <p className="text-black/70 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+          Alhamdulillah, every act of giving creates real change in real lives.
+        </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+
+      {/* GRID */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+
         {[
           { val: "500+", label: "Families Supported", icon: "solar:users-group-rounded-bold" },
           { val: "৳40L+", label: "Funds Disbursed", icon: "solar:wallet-money-bold" },
           { val: "80+", label: "Scholarships Given", icon: "solar:diploma-bold" },
           { val: "3+", label: "Districts Covered", icon: "solar:map-point-bold" },
         ].map((s, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, scale: 0.92 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="bg-black/10 rounded-[24px] p-7 text-center hover:bg-black/20 transition-colors duration-300 group">
-            <Icon icon={s.icon} className="text-3xl text-black/50 mb-4 mx-auto group-hover:text-black/70 transition-colors" />
-            <p className="font-serif text-5xl font-bold text-black tracking-tight mb-2">{s.val}</p>
-            <p className="text-black/60 text-[10px] uppercase tracking-[0.2em] font-bold">{s.label}</p>
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: i * 0.12,
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="group"
+          >
+
+            {/* CARD */}
+            <div className="
+  relative h-full rounded-[28px]
+  overflow-hidden isolate
+  bg-white/15 backdrop-blur-2xl
+  border border-white/25
+  p-8 md:p-10 text-center
+  transition-all duration-500
+  hover:bg-white/20 hover:border-white/40
+  hover:shadow-[0_25px_70px_rgba(0,0,0,0.15)]
+">
+
+              {/* soft glow layer (no lines) */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-b from-white/25 to-transparent" />
+
+              {/* ICON */}
+              <div className="relative mb-6">
+                <div className="
+                  w-16 h-16 mx-auto rounded-2xl
+                  bg-white/20 border border-white/30
+                  flex items-center justify-center
+                  transition-all duration-500
+                  group-hover:scale-110 group-hover:bg-white/30
+                ">
+                  <Icon
+                    icon={s.icon}
+                    className="text-3xl text-black/80 group-hover:text-black transition-colors"
+                  />
+                </div>
+              </div>
+
+              {/* VALUE */}
+              <p className="font-serif text-5xl md:text-6xl font-bold text-black leading-none tracking-tight">
+                {s.val}
+              </p>
+
+              {/* LABEL (clean spacing instead of underline) */}
+              <p className="text-[10px] md:text-xs font-bold text-black/80 uppercase tracking-[0.28em] mt-5">
+                {s.label}
+              </p>
+
+            </div>
+
           </motion.div>
         ))}
+
       </div>
     </div>
   </section>
 );
-
 /* ─────────────────────────────────────────────
    ACTIVITIES  — LIGHT
 ───────────────────────────────────────────── */
@@ -366,40 +507,104 @@ const activities = [
 ];
 
 const ActivitiesSection = () => (
-  <section className="bg-white text-stone-800 py-32">
-    <div className="container mx-auto px-4">
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
+  <section className="bg-white text-stone-800 py-32 relative overflow-hidden">
+
+    {/* soft background wash */}
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-yellow-100/40 blur-3xl rounded-full" />
+    </div>
+
+    <div className="container mx-auto px-4 relative z-10">
+
+      {/* Header */}
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-10">
         <div>
           <SectionLabel>Recent Activities</SectionLabel>
-          <h2 className="font-serif text-5xl font-bold text-stone-900">
+
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-black leading-tight">
             Stories of{" "}
-            <span className="text-amber-500">Impact</span>
+            <span className="text-yellow-600 relative">
+              Impact
+              <span className="absolute -bottom-2 left-0 w-full h-[3px] bg-yellow-400/40 rounded-full" />
+            </span>
           </h2>
+
+          <p className="text-stone-500 mt-4 max-w-md leading-relaxed">
+            Moments from our field activities that reflect real change and real lives.
+          </p>
         </div>
+
         <Link href="/gallery">
-          <Button variant="bordered" className="border-amber-400 text-amber-700 rounded-full px-8 h-12 hover:bg-amber-400 hover:text-black transition-all duration-300">
-            View Gallery <Icon icon="solar:arrow-right-bold" />
+          <Button
+            variant="bordered"
+            className="group border-2 border-yellow-500 text-yellow-700 rounded-full px-8 h-12 hover:bg-yellow-400 hover:text-black hover:border-yellow-400 transition-all duration-300 font-bold"
+          >
+            View Gallery
+            <Icon
+              icon="solar:arrow-right-bold"
+              className="ml-2 group-hover:translate-x-1 transition-transform duration-300"
+            />
           </Button>
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {/* GRID */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
         {activities.map((a, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative rounded-[28px] overflow-hidden h-72 border border-stone-100 cursor-pointer shadow-sm hover:shadow-xl hover:shadow-stone-200 transition-shadow duration-500">
-            <Image src={a.img} alt={a.title} fill className="object-cover group-hover:scale-108 transition-transform duration-1000" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-7">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400 bg-black/30 border border-amber-400/30 rounded-full px-3 py-1 mb-3 inline-block backdrop-blur-sm">
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              delay: i * 0.12,
+              duration: 0.6,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="group relative rounded-[32px] overflow-hidden h-[340px] border border-stone-100 shadow-sm hover:shadow-2xl transition-all duration-500"
+          >
+            {/* image */}
+            <Image
+              src={a.img}
+              alt={a.title}
+              fill
+              className="object-cover scale-105 group-hover:scale-110 transition-transform duration-[1200ms]"
+            />
+
+            {/* gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+
+            {/* subtle hover glow */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-yellow-400/10" />
+
+            {/* content */}
+            <div className="absolute bottom-0 left-0 right-0 p-8">
+
+              {/* category badge */}
+              <span className="inline-flex items-center text-[11px] font-bold uppercase tracking-[0.2em] text-yellow-300 bg-black/40 border border-yellow-400/40 rounded-full px-4 py-2 backdrop-blur-md mb-5">
                 {a.category}
               </span>
-              <p className="text-white font-bold text-lg leading-snug">{a.title}</p>
-              <p className="text-white/50 text-sm mt-1">{a.date}</p>
+
+              {/* title */}
+              <p className="text-white font-serif font-bold text-xl md:text-2xl leading-snug mb-2 group-hover:text-yellow-100 transition-colors duration-300">
+                {a.title}
+              </p>
+
+              {/* date */}
+              <p className="text-white/50 text-sm tracking-wide">
+                {a.date}
+              </p>
+
+              {/* bottom accent line */}
+              <div className="mt-5 w-0 group-hover:w-16 h-[2px] bg-yellow-400 rounded-full transition-all duration-500" />
             </div>
+
+            {/* corner highlight */}
+            <div className="absolute top-4 right-4 w-10 h-10 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           </motion.div>
         ))}
+
       </div>
     </div>
   </section>
@@ -420,48 +625,47 @@ const DonateSection = () => {
   return (
     <section className="bg-stone-50 text-stone-800 py-32 relative overflow-hidden">
       {/* Faint star bg */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-        <IslamicStar className="w-[700px] h-[700px] text-amber-500" />
+      <div className="absolute inset-0 flex items-center justify-center opacity-[0.04] pointer-events-none">
+        <IslamicStar className="w-[700px] h-[700px] text-yellow-400" />
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <SectionLabel>Support the Cause</SectionLabel>
-          <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 mb-6">
+          <h2 className="font-serif text-5xl md:text-7xl font-bold text-black mb-8">
             Your Sadaqah,<br />
-            <span className="text-amber-500">Their Tomorrow</span>
+            <span className="text-yellow-600">Their Tomorrow</span>
           </h2>
-          <p className="text-stone-400 text-lg leading-relaxed mb-14 max-w-2xl mx-auto">
+          <p className="text-stone-700 text-lg sm:text-xl leading-relaxed mb-16 max-w-2xl mx-auto font-medium">
             Every taka you give becomes a star in the lives of those in darkness. Choose an amount and make a difference today.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-12">
             {donationTiers.map((t, i) => (
               <button key={i} onClick={() => setSelected(i)}
-                className={`rounded-[20px] p-6 border transition-all duration-300 text-left group ${
-                  selected === i
-                    ? "bg-amber-400 border-amber-400 shadow-lg shadow-amber-400/20"
-                    : "bg-white border-stone-200 hover:border-amber-300 hover:shadow-md hover:shadow-amber-400/8"
-                }`}>
-                <Icon icon={t.icon} className={`text-3xl mb-4 ${selected === i ? "text-black" : "text-amber-400 group-hover:text-amber-500"}`} />
-                <p className={`font-serif text-3xl font-bold mb-2 ${selected === i ? "text-black" : "text-stone-800"}`}>{t.amount}</p>
-                <p className={`text-[11px] font-bold uppercase tracking-wide leading-tight ${selected === i ? "text-black/60" : "text-stone-400"}`}>{t.label}</p>
+                className={`rounded-[28px] p-8 border-2 transition-all duration-300 text-left group ${selected === i
+                    ? "bg-yellow-400 border-yellow-400 shadow-xl shadow-yellow-400/30"
+                    : "bg-white border-stone-300 hover:border-yellow-400 hover:shadow-lg hover:shadow-yellow-400/15"
+                  }`}>
+                <Icon icon={t.icon} className={`text-5xl mb-5 ${selected === i ? "text-black/80" : "text-yellow-500 group-hover:text-yellow-600"}`} />
+                <p className={`font-serif text-4xl font-bold mb-3 ${selected === i ? "text-black" : "text-black"}`}>{t.amount}</p>
+                <p className={`text-xs sm:text-sm font-bold uppercase tracking-wider leading-snug ${selected === i ? "text-black/70" : "text-stone-700"}`}>{t.label}</p>
               </button>
             ))}
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link href="/donate">
-              <Button size="lg" className="bg-amber-400 text-black font-bold px-14 h-16 rounded-full text-lg shadow-[0_16px_48px_rgba(251,191,36,0.25)] hover:bg-amber-500 transition-all duration-300">
-                <Icon icon="solar:hand-money-bold" className="text-xl" /> Donate Now
+              <Button size="lg" className="bg-yellow-400 text-black font-bold px-16 h-16 rounded-full text-lg shadow-[0_16px_48px_rgba(250,204,21,0.35)] hover:bg-yellow-500 transition-all duration-300">
+                <Icon icon="solar:hand-money-bold" className="text-2xl" /> Donate Now
               </Button>
             </Link>
             <Link href="/donate#recurring">
-              <Button size="lg" variant="bordered" className="border-stone-300 text-stone-500 h-16 px-10 rounded-full hover:border-amber-400 hover:text-amber-700 transition-all duration-300">
+              <Button size="lg" variant="bordered" className="border-2 border-black text-black h-16 px-12 rounded-full hover:bg-black hover:text-yellow-400 transition-all duration-300 font-semibold">
                 Set Up Monthly Giving
               </Button>
             </Link>
           </div>
-          <p className="text-stone-300 text-sm mt-8">Zakat eligible · 100% transparent · Recognized charity</p>
+          <p className="text-stone-600 text-base mt-10 font-medium">Zakat eligible · 100% transparent · Recognized charity</p>
         </div>
       </div>
     </section>
@@ -480,31 +684,31 @@ const testimonials = [
 const TestimonialsSection = () => (
   <section className="bg-white text-stone-800 py-32">
     <div className="container mx-auto px-4">
-      <div className="text-center mb-16">
+      <div className="text-center mb-20">
         <SectionLabel>Their Stories</SectionLabel>
-        <h2 className="font-serif text-5xl font-bold text-stone-900">
+        <h2 className="font-serif text-5xl md:text-6xl font-bold text-black">
           Words from the{" "}
-          <span className="text-amber-500">Community</span>
+          <span className="text-yellow-600">Community</span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((t, i) => (
           <motion.div key={i}
             initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             transition={{ delay: i * 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-stone-50 border border-stone-100 rounded-[28px] p-8 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-400/8 transition-all duration-500 group relative overflow-hidden">
+            className="bg-stone-50 border-2 border-stone-200 rounded-[32px] p-10 hover:border-yellow-300 hover:shadow-lg hover:shadow-yellow-400/15 transition-all duration-500 group relative overflow-hidden">
             {/* Quote mark */}
-            <div className="absolute -right-3 -top-3 text-[80px] font-serif text-amber-400 opacity-[0.08] font-bold leading-none select-none">&quot;</div>
-            <Icon icon="solar:quote-up-bold" className="text-2xl text-amber-300 mb-5 group-hover:text-amber-400 transition-colors" />
-            <p className="text-stone-500 text-[15px] leading-[1.9] mb-7 italic">&quot;{t.quote}&quot;</p>
+            <div className="absolute -right-4 -top-4 text-[100px] font-serif text-yellow-400 opacity-[0.15] font-bold leading-none select-none">&quot;</div>
+            <Icon icon="solar:quote-up-bold" className="text-3xl text-yellow-500 mb-6 group-hover:text-yellow-600 transition-colors" />
+            <p className="text-stone-700 text-lg leading-[1.85] mb-8 italic">&quot;{t.quote}&quot;</p>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-amber-50 border-2 border-amber-200 flex items-center justify-center font-serif text-xl text-amber-500 font-bold flex-shrink-0">
+              <div className="w-14 h-14 rounded-full bg-yellow-100 border-2 border-yellow-400 flex items-center justify-center font-serif text-2xl text-yellow-700 font-bold flex-shrink-0">
                 {t.initial}
               </div>
               <div>
-                <p className="text-stone-800 font-bold text-sm">{t.name}</p>
-                <p className="text-stone-400 text-xs mt-0.5">{t.role}</p>
+                <p className="text-black font-bold text-base">{t.name}</p>
+                <p className="text-stone-600 text-sm mt-1">{t.role}</p>
               </div>
             </div>
           </motion.div>
@@ -518,14 +722,14 @@ const TestimonialsSection = () => (
    PARTNERS  — LIGHT
 ───────────────────────────────────────────── */
 const PartnersSection = () => (
-  <section className="bg-stone-50 text-stone-800 py-16 border-y border-stone-100">
+  <section className="bg-stone-50 text-stone-800 py-20 border-y border-yellow-300/50">
     <div className="container mx-auto px-4">
-      <p className="text-center text-stone-300 text-[11px] uppercase tracking-[0.3em] font-bold mb-10">
+      <p className="text-center text-stone-600 text-xs sm:text-sm uppercase tracking-[0.25em] font-bold mb-12">
         Trusted By Our Partners & Supporters
       </p>
-      <div className="flex flex-wrap items-center justify-center gap-10">
+      <div className="flex flex-wrap items-center justify-center gap-8">
         {["Local Mosques", "District Administration", "Islamic Relief Network", "Zakaat Committee", "Community Trusts"].map((p) => (
-          <span key={p} className="text-stone-300 text-sm font-semibold tracking-wide hover:text-amber-500 transition-colors">{p}</span>
+          <span key={p} className="text-stone-700 text-base sm:text-lg font-semibold tracking-wide hover:text-yellow-600 hover:scale-105 transition-all duration-300">{p}</span>
         ))}
       </div>
     </div>
@@ -536,23 +740,23 @@ const PartnersSection = () => (
    JOIN / NEWSLETTER  — LIGHT
 ───────────────────────────────────────────── */
 const JoinSection = () => (
-  <section className="bg-white text-stone-800 py-32 relative overflow-hidden">
-    <div className="absolute left-0 bottom-0 w-[400px] h-[400px] text-amber-400/[0.05] pointer-events-none">
+  <section className="bg-white text-black py-32 relative overflow-hidden">
+    <div className="absolute left-0 bottom-0 w-[400px] h-[400px] text-yellow-400/[0.06] pointer-events-none">
       <GeometricPattern className="w-full h-full" />
     </div>
     <div className="container mx-auto px-4 relative z-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
         {/* Newsletter */}
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="bg-stone-50 border border-stone-100 rounded-[36px] p-10 hover:border-amber-200 hover:shadow-lg hover:shadow-amber-400/8 transition-all duration-500">
-          <Icon icon="solar:letter-bold" className="text-4xl text-amber-400 mb-6" />
-          <h3 className="font-serif text-3xl font-bold text-stone-900 mb-3">Stay Connected</h3>
-          <p className="text-stone-400 text-[15px] leading-relaxed mb-8">Receive updates on activities, impact reports, and donation drives directly in your inbox.</p>
+          className="bg-stone-50 border-2 border-yellow-300 rounded-[40px] p-12 hover:border-yellow-400 hover:shadow-lg hover:shadow-yellow-400/20 transition-all duration-500">
+          <Icon icon="solar:letter-bold" className="text-5xl text-yellow-500 mb-8" />
+          <h3 className="font-serif text-4xl font-bold text-black mb-4">Stay Connected</h3>
+          <p className="text-stone-700 text-lg leading-relaxed mb-10 font-medium">Receive updates on activities, impact reports, and donation drives directly in your inbox.</p>
           <div className="flex gap-3">
             <input type="email" placeholder="your@email.com"
-              className="flex-1 bg-white border border-stone-200 rounded-full px-5 py-3.5 text-stone-700 placeholder-stone-300 text-sm focus:outline-none focus:border-amber-400 transition-colors" />
-            <Button className="bg-amber-400 text-black font-bold px-7 rounded-full hover:bg-amber-500 transition-all duration-300">
+              className="flex-1 bg-white border-2 border-yellow-300 rounded-full px-6 py-4 text-black placeholder-stone-400 text-base focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-200 transition-all" />
+            <Button className="bg-yellow-400 text-black font-bold px-8 rounded-full hover:bg-yellow-500 transition-all duration-300 text-base">
               Subscribe
             </Button>
           </div>
@@ -560,18 +764,18 @@ const JoinSection = () => (
 
         {/* Volunteer */}
         <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}
-          className="bg-amber-400 rounded-[36px] p-10 flex flex-col justify-between relative overflow-hidden group hover:bg-amber-500 transition-colors duration-500">
+          className="bg-yellow-400 rounded-[40px] p-12 flex flex-col justify-between relative overflow-hidden group hover:bg-yellow-500 transition-colors duration-500">
           <motion.div animate={{ rotate: 360 }} transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
-            className="absolute -right-8 -bottom-8 w-52 h-52 text-black/5">
+            className="absolute -right-8 -bottom-8 w-52 h-52 text-black/10">
             <IslamicStar className="w-full h-full" />
           </motion.div>
-          <Icon icon="solar:users-group-rounded-bold" className="text-5xl text-black/60 mb-auto" />
-          <div className="mt-12">
-            <h3 className="font-serif text-4xl font-bold text-black mb-3">Volunteer With Us</h3>
-            <p className="text-black/60 text-[15px] leading-relaxed mb-8">Join our growing family of 100+ dedicated volunteers and be the light in someone&apos;s darkness.</p>
+          <Icon icon="solar:users-group-rounded-bold" className="text-6xl text-black/70 mb-auto" />
+          <div className="mt-14">
+            <h3 className="font-serif text-5xl font-bold text-black mb-4">Volunteer With Us</h3>
+            <p className="text-black/75 text-lg leading-relaxed mb-10 font-medium">Join our growing family of 100+ dedicated volunteers and be the light in someone&apos;s darkness.</p>
             <Link href="/volunteer">
-              <Button className="bg-black text-amber-400 font-bold px-8 h-12 rounded-full hover:bg-stone-900 transition-all duration-300">
-                <Icon icon="solar:hand-heart-bold" /> Join as Volunteer
+              <Button className="bg-black text-yellow-400 font-bold px-10 h-14 rounded-full hover:bg-stone-900 transition-all duration-300 text-base">
+                <Icon icon="solar:hand-heart-bold" className="text-lg" /> Join as Volunteer
               </Button>
             </Link>
           </div>
@@ -587,7 +791,7 @@ const JoinSection = () => (
 ───────────────────────────────────────────── */
 export default function HomePage() {
   return (
-    <main className="bg-white selection:bg-amber-400 selection:text-black">
+    <main className="bg-white selection:bg-yellow-400 selection:text-black">
       <HeroSection />
       <StatsBar />
       <MissionSection />
